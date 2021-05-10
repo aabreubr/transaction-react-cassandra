@@ -22,4 +22,9 @@ public class TransactionController {
         return transactionRepository.findById(id);
     }
 
+    @GetMapping("/status/{id}")
+    public Mono<Transaction> getTransactionByIdAndStatus(@PathVariable String id) {
+        return transactionRepository.findByIdAndStatus(id, "OK");
+    }
+
 }

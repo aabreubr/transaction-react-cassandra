@@ -12,7 +12,7 @@ import java.util.List;
 @Configuration
 public class AppConfig {
 
-    @Value("${spring.data.cassandra.keyspace-name}")
+    /*@Value("${spring.data.cassandra.keyspace-name}")
     private String keyspace;
 
     @Value("${spring.data.cassandra.contact-points}")
@@ -33,6 +33,6 @@ public class AppConfig {
         });
         session.setKeyspaceName(keyspace);
         return session;
-    }
+    }*/
 
 }
