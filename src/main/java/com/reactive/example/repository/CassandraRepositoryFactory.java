@@ -26,4 +26,10 @@ public class CassandraRepositoryFactory extends ReactiveCassandraRepositoryFacto
                     .flatMap(time -> Mono.delay(Duration.ofSeconds(time))));
     }
 
+    public Mono<Transaction> findByIdAndUuidAndStatus(String name, String uuid, String status) {
+        return super.getRepository(TransactionRepository.class).listByNameAndUuidAndStatus(name, uuid, status)
+                .repeatWhenEmpty(repeat -> repeat.zipWith(Flux.range(1, 5), (e, idx) -> idx)
+                        .flatMap(time -> Mono.delay(Duration.ofSeconds(time))));
+    }
+
 }

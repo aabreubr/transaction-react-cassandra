@@ -27,4 +27,9 @@ public class TransactionController {
         return transactionRepository.findByIdAndStatus(id, "OK");
     }
 
+    @GetMapping("/name/{id}")
+    public Mono<Transaction> getTransactionByNameAndStatus(@PathVariable String id) {
+        return transactionRepository.findByIdAndUuidAndStatus("12313", id, "OK");
+    }
+
 }

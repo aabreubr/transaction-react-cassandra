@@ -11,7 +11,7 @@ public class ClientTransactionTest {
     private WebClient client = WebClient.create("http://localhost:8080");
 
     private Mono<Transaction> result = client.get()
-            .uri("/transactions/status/{id}", "12313")
+            .uri("/transactions/name/{id}", "II2323RIUB3RB2BI-OOWEFUHMLLASO")
             .accept(MediaType.APPLICATION_JSON)
             .retrieve()
             .bodyToMono(Transaction.class);
